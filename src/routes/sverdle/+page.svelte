@@ -4,8 +4,6 @@
 	import type { ActionData, PageData } from './$types';
 	import { MediaQuery } from 'svelte/reactivity';
 
-	export const prerender = true;
-
 	interface Props {
 		data: PageData;
 		form: ActionData;
