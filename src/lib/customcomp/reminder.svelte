@@ -5,8 +5,6 @@
     let newLabel = $state("");
 
     import { fade, slide } from "svelte/transition";
-    import { flip } from "svelte/animate";
-    import { expoInOut } from "svelte/easing";
 
     onMount(()=>{
         if(window !== null){
