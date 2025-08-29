@@ -4,14 +4,15 @@
     import { toggleMode } from "mode-watcher";
     import { mode } from "mode-watcher";
     import { name } from "$lib/customcomp/sharedconfig/name.svelte";
-	import { goto } from "$app/navigation";
+  	import { goto } from "$app/navigation";
+    import { resolve } from "$app/paths"
 </script>
  
 <div class="z-[999] bg-background duration-500 rounded-t-2xl flex flex-row justify-between text-foreground">
     <NavigationMenu.Root viewport={false} class="flex flex-row gap-8" orientation="vertical">
       <NavigationMenu.List>
         <NavigationMenu.Item>
-          <NavigationMenu.Link onSelect={() => goto("/")} class="ml-2">Home</NavigationMenu.Link>
+          <NavigationMenu.Link onSelect={() => goto(resolve("/"))} class="ml-2">Home</NavigationMenu.Link>
         </NavigationMenu.Item>
       </NavigationMenu.List>
     </NavigationMenu.Root>
@@ -28,7 +29,7 @@
           </NavigationMenu.Content>
         </NavigationMenu.Item>
         <NavigationMenu.Item>
-          <NavigationMenu.Link onSelect={() => goto("/support")} class="ml-2 mr-2">Support</NavigationMenu.Link>
+          <NavigationMenu.Link onSelect={() => goto(resolve(`/support`))} class="ml-2 mr-2">Support</NavigationMenu.Link>
         </NavigationMenu.Item>
         <NavigationMenu.Item>
           <button class="m-1" aria-labelledby="Theme" onclick={toggleMode}>
