@@ -1,12 +1,13 @@
 <script lang="ts">
-  import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
-  import { onMount } from "svelte";
-  import { toggleMode } from "mode-watcher";
-  import { mode } from "mode-watcher";
+    import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
+    import { onMount } from "svelte";
+    import { toggleMode } from "mode-watcher";
+    import { mode } from "mode-watcher";
+    import { name } from "./name.svelte";
 </script>
  
-<div class="bg-background duration-500 rounded-t-2xl flex flex-row justify-between text-foreground">
-    <NavigationMenu.Root viewport={false} class="flex flex-row gap-8">
+<div class="z-[999] bg-background duration-500 rounded-t-2xl flex flex-row justify-between text-foreground">
+    <NavigationMenu.Root viewport={false} class="flex flex-row gap-8" orientation="vertical">
       <NavigationMenu.List>
         <NavigationMenu.Item>
           <NavigationMenu.Trigger class="rounded-t-2xl">Customization</NavigationMenu.Trigger>
@@ -27,8 +28,15 @@
         <NavigationMenu.Item>
           <NavigationMenu.Trigger class="rounded-t-2xl">Customization</NavigationMenu.Trigger>
           <NavigationMenu.Content>
-            <NavigationMenu.Link>Link</NavigationMenu.Link>
+            <NavigationMenu.Link>
+                <NavigationMenu.Item>
+                    <input type="text" bind:value={name.name}>
+                </NavigationMenu.Item>
+            </NavigationMenu.Link>
           </NavigationMenu.Content>
+        </NavigationMenu.Item>
+        <NavigationMenu.Item>
+          <a href="/support">support</a>
         </NavigationMenu.Item>
         <NavigationMenu.Item>
           <button class="m-1" aria-labelledby="Theme" onclick={toggleMode}>

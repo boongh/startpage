@@ -31,28 +31,28 @@
     }
 </script>
 
-<div class="relative flex flex-col">
-    <div class="flex flex-row">
+<div class="relative flex flex-col font-bold flex-initial">
+    <div class="flex flex-row absolute top-0 right-0">
+        <input type="text" bind:value={newLabel} class="focus:outline-none border-b-foreground border-b-2 text-foreground" onkeydown={(e) => {
+            console.log("ley down", e.key)
+            if(e.key === 'Enter'){
+                addReminder();
+            }
+        }}>
         <button onclick={
             addReminder
         } aria-labelledby="Add new"
         class="hover:bg-black/5 rounded-sm">
             <svg class="fill-foreground" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>
         </button>
-        <input type="text" bind:value={newLabel} class="border-transparent focus:outline-none border-b-foreground border-2 text-foreground" onkeydown={(e) => {
-            console.log("ley down", e.key)
-            if(e.key === 'Enter'){
-                addReminder();
-            }
-        }}>
     </div>
-    <ul class="absolute right-0 w-full top-8 bg-background overflow-y-scroll flex-col flex justify-end">
+    <ul class="absolute right-0 top-8 overflow-y-scroll flex-col flex justify-start gap-1 h-full">
         {#each Object.entries(reminders) as [id, {state, label}]}
             {#if state === false}
-                <div class="flex flex-row items-center gap-2 p-2 mr-4"
+                <div class="flex flex-row items-center gap-2 border-b-muted-foreground justify-end border-b-2 p-2 mr-4"
                 transition:fade={{ duration: 400 }}>
+                <span class="text-foreground">{label}</span>
                     <Checkbox id="terms" class="w-4 h-4 shadow-none" bind:checked= {reminders[id].state}/>
-                    <span class="text-foreground">{label}</span>
                 </div>
             {:else}
                 {delete reminders[id]}
