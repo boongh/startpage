@@ -12,7 +12,7 @@ const config = {
 			"@/*": "./path/to/lib/*",
 		},
 		paths:{
-			paths: { relative: false },
+			relative: true,
 			base: "/startpage"
 		}
 	}
