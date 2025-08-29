@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from "svelte";
-    import { name, setName, getName} from "./name.svelte"
+    import { name, setName, getName} from "$lib/customcomp/sharedconfig/name.svelte"
     onMount(() => {
         getName();
     })

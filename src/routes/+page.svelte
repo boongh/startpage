@@ -1,9 +1,7 @@
 <script lang="ts">
-	import Reminder from "./reminder.svelte"
+	import Reminder from "$lib/customcomp/reminder.svelte"
 	import Commandbar from "../lib/customcomp/commandbar.svelte";
-	import Welcomename from "./welcomename.svelte";
-
-	let name = "Boon"
+	import Welcomename from "../lib/customcomp/welcomename.svelte";
 </script>
 
 <svelte:head>
@@ -22,7 +20,7 @@
 	</div>
 
 	<div id="rightSlot" class="relative h-full grow-1 flex flex-row-reverse">
-		<Reminder/>
+		<!-- <Reminder/> -->
 	</div>
 </div>
 <div id="bottomSlot"class="w-full grow-1 flex justify-center">
