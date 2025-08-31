@@ -3,9 +3,10 @@
 	import { computeCommandScore } from 'bits-ui';
 	import CalculatorIcon from '@lucide/svelte/icons/calculator';
 	import CalendarIcon from '@lucide/svelte/icons/calendar';
-	import Languages from "@lucide/svelte/icons/languages"
+	import Languages from '@lucide/svelte/icons/languages';
 	import SmileIcon from '@lucide/svelte/icons/smile';
 	import UserIcon from '@lucide/svelte/icons/user';
+	import Eraser from '@lucide/svelte/icons/eraser'
 
 	const SearchEngine = {
 		Google: 'https://www.google.com/search?q=',
@@ -39,16 +40,21 @@
 {#if query == ''}
 	<Command.List>
 		<Command.Group heading="Commands">
-			<Command.Item onSelect={(() => {query = ""})}>
-				<CalendarIcon />
+			<Command.Item
+				onSelect={() => {
+					query = '';
+				}}
+			>
+				<Eraser />
 				<span>Clear</span>
 			</Command.Item>
-			<Command.Item onSelect={(() => {
-				commandinpref.value = ""
-				SetMode("translate")
-				})}
+			<Command.Item
+				onSelect={() => {
+					commandinpref.value = '';
+					SetMode('translate');
+				}}
 				value="Translate"
-				>
+			>
 				<Languages />
 				<span>Translate</span>
 			</Command.Item>
@@ -61,16 +67,21 @@
 {:else}
 	<Command.List>
 		<Command.Group>
-			<Command.Item onSelect={(() => {commandinpref.value = ""})}>
+			<Command.Item
+				onSelect={() => {
+					commandinpref.value = '';
+				}}
+			>
 				<CalendarIcon />
 				<span>Clear</span>
 			</Command.Item>
-			<Command.Item onSelect={(() => {
-				commandinpref.value = ""
-				SetMode("translate")
-				})}
+			<Command.Item
+				onSelect={() => {
+					commandinpref.value = '';
+					SetMode('translate');
+				}}
 				value="Translate"
-				>
+			>
 				<Languages />
 				<span>Translate</span>
 			</Command.Item>
@@ -105,3 +116,4 @@
 		{/key}
 	</Command.List>
 {/if}
+

@@ -8,7 +8,7 @@
 	<meta name="" content="Support the project" />
 </svelte:head>
 
-<div class="w-full h-full flex flex-row">
+<div class="w-full h-full flex flex-col md:flex-row">
 
     <section id="creator" class="m-4 gap-2 w-[50%]">
         <h2 class="font-extrabold text-6xl text-muted-foreground">Creator</h2>
