@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "SSpage",
+  "short_name": "SSpage",
+  "version": "2.6.0",
+  "description": "",
+  "chrome_settings_overrides": {
+    "homepage": "index.html"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage", "activeTab"]
+}

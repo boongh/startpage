@@ -1,5 +1,7 @@
 <script>
+    import { Textarea } from "$lib/components/ui/textarea/index.js";
+    let nickname = $state("");
 </script>
 
 
-<input type="text" >
+<Textarea placeholder="" bind:value={nickname}></Textarea>

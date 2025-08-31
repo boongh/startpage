@@ -1,0 +1,15 @@
+{
+    "default": {
+        "id" : "default"
+    },
+    "modes":[
+        {
+            "name":"default",
+            "source":"default"
+        },
+        {
+            "name":"translate",
+            "source":"translate"
+        }   
+    ]
+}
