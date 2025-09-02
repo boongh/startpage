@@ -199,7 +199,7 @@
 					{#each suggestions as suggestion}
 						<Command.LinkItem
 							value={suggestion.word}
-							onSelect={() => SearchHandler(suggestion.word, SearchEngine.Google)}
+							onSelect={() => SearchHandler(suggestion.word, option)}
 						>
 							<span>{suggestion.word}</span>
 						</Command.LinkItem>
