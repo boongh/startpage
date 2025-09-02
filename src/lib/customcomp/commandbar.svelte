@@ -1,8 +1,11 @@
 <script lang="ts">
 	import * as Command from '$lib/components/ui/command/index.js';
-	import { onMount } from 'svelte';
 	import * as Alert from '$lib/components/ui/alert/index.js';
 	import * as Label from '$lib/components/ui/label/index.js';
+	import { toast } from "svelte-sonner"
+	import { toastconfig, getToastConfig } from './sharedconfig/toastconfig.svelte';
+	import { ModeWatcher } from 'mode-watcher';
+	import {  PushToast as PushPopup } from './toast';
 
 	let query = $state(``);
 	let ModeComponent = $state();
@@ -13,15 +16,18 @@
 			return 0;
 		}
 	});
-	let commandinpref: HTMLElement | null | undefined = $state(null);
 
+	let commandinpref: HTMLElement | null | undefined = $state(null);
 	let commandmode = $state('default');
+	let extraParam = $state({});
 
 	async function LoadMode(mode: string) {
 		filter = await import(`$lib/customcomp/modeEngine/modesComponent/${mode}/filter.svelte.ts`);
+
 		ModeComponent = (
 			await import(`$lib/customcomp/modeEngine/modesComponent/${mode}/component.svelte`)
 		).default;
+
 		console.log('new mode: ', mode);
 		SetMode(mode);
 	}
@@ -30,29 +36,29 @@
 		commandmode = mode;
 	}
 
+	function SetExtraParam(Param: Object) {
+		extraParam = Param;
+	}
+
 	$effect(() => {
 		LoadMode(commandmode);
 	});
-
-	let alertContent = $state('');
-	let alertHeader = $state('');
-
-	function PushPopup(Header: string, Content: string) {
-		alertHeader = Header;
-		alertContent = Content;
-	}
-
-	$inspect(alertContent);
 </script>
 
-<div class="h-96 w-[90%] duration-75 md:w-[70%]">
-	<Label.Root
-		id="terms-label"
-		for="commandinput"
-		class="text-sm leading-none font-medium peer-disabled:cursor-not-allowed select-none peer-disabled:opacity-70 text-muted-foreground m-2"
-	>
-		Mode: {commandmode}
-	</Label.Root>
+
+<div class="h-96 w-[90%] max-w-sm md:max-w-2xl lg:bg-red lg:max-w-4xl duration-75 md:w-[100%]">
+	{#key [commandmode, extraParam]}
+		<Label.Root
+			id="terms-label"
+			for="commandinput"
+			class="m-2 text-sm leading-none font-medium text-muted-foreground select-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+		>
+			Mode: {commandmode}
+			{#each Object.entries(extraParam) as [key, val]}
+				{key} : {val}&nbsp;
+			{/each}
+		</Label.Root>
+	{/key}
 	<Command.Root class="h-fit w-full overflow-ellipsis" filter={filter.Filter}>
 		<Command.Input
 			id="commandinput"
@@ -62,14 +68,7 @@
 		/>
 		<Command.Empty>No results found.</Command.Empty>
 		{#if ModeComponent}
-			<ModeComponent {query} {commandinpref} {SetMode} {PushPopup}></ModeComponent>
+			<ModeComponent {query} {commandinpref} {SetMode} {PushPopup} {SetExtraParam}></ModeComponent>
 		{/if}
 	</Command.Root>
-	{#if alertContent}
-		<Alert.Root>
-			<Alert.Title>{alertHeader}</Alert.Title>
-			<Alert.Description>{alertContent}</Alert.Description>
-		</Alert.Root>
-	{/if}
-	
 </div>

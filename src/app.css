@@ -37,6 +37,13 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+
+  --toast-success-bg: #a3c4a1;
+  --toast-warning-bg: #e8c48a;
+  --toast-error-bg: #e09494;
+  --toast-info-bg: #9db3d4;
+  --toast-header-text: #0d0d0d;
+  --toast-description-text: #595959;
 }
 
 .dark {
@@ -71,6 +78,13 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+
+  --toast-success-bg: #5d7a5d;
+  --toast-warning-bg: #8a7458;
+  --toast-error-bg: #8a5e5e;
+  --toast-info-bg: #5b6c86;
+  --toast-header-text: #ebebeb;
+  --toast-description-text: #c2c2c2;
 }
 
 @theme inline {

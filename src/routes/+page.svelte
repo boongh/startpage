@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Reminder from "$lib/customcomp/reminder.svelte"
+	//import Reminder from "$lib/customcomp/reminder.svelte"
 	import Commandbar from "../lib/customcomp/commandbar.svelte";
 	import Welcomename from "../lib/customcomp/welcomename.svelte";
 </script>

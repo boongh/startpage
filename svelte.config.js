@@ -21,7 +21,12 @@ const config = {
 			relative: true,
 			base: "/startpage"
 		}
-	}
+	},
+	vite: {
+        ssr: {
+            noExternal: ['svelte-sonner']
+        }
+    }
 };
 
 export default config;
