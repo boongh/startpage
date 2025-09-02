@@ -4,7 +4,7 @@ v - Alpha 0.0.0
 
 > ***Achieve more doing less***
 
-Web Glare is an open-source web browser extension designed to rework and empowers the start page of your web browser with commands, options and modes.
+Web Glare is an **open-source web browser extension** designed to rework and empowers the start page of your web browser with commands, options and modes.
 
 ## Features
 
@@ -12,12 +12,12 @@ Most features are revolved around getting things done through the main command l
 
 ## Modes
 
-Modes are a mean to give the command line a whole new use. It reworks the internal system of the command line giving your new utilities such as translation and running Javascript code
+Modes are a mean to give the command line a whole new use. It provides a different functionality to the main command line giving you new utilities such as translation and running Javascript code
 
 #### Translation
 Web Glare provides a free translation service through the translation mode. This mode allows the user to input a target language and a text they wish to be translated, and the extension will route your translation request through a proxied DeepL free tier translation API. 
 
-The are as specified by DeepL's own API [language code](https://developers.deepl.com/docs/getting-started/supported-languages)
+The language codes are as specified by DeepL's own API [language code](https://developers.deepl.com/docs/getting-started/supported-languages) list
 
 Do note that, by DeepL's terms of service, the processed data will be used for improvements and training their models on their end.
 
@@ -30,7 +30,7 @@ The return results are given back to the user through the command line items in 
 
 ## Options
 
-The Command system has display system to support a few extra parameters if the modes which to utilize. Currently the default mode offers Image Search and Map search that directly sends you to the image search / map search of your choice.
+The Command system has display system to support a few extra parameters if the modes wishes to utilize. Currently the default mode offers Image Search and Map search that directly sends you to the image search / map search of your choice.
 
 ## Personalization
 
