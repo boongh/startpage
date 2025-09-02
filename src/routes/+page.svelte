@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Liveclock from "$lib/customcomp/liveclock.svelte";
+
 	//import Reminder from "$lib/customcomp/reminder.svelte"
 	import Commandbar from "../lib/customcomp/commandbar.svelte";
 	import Welcomename from "../lib/customcomp/welcomename.svelte";
@@ -15,6 +17,7 @@
 	<div id="leftSlot" class="h-full grow-1">
 	</div>
 	<div class="relative justify-center items-center h-full grow-2 rounded-2xl flex flex-col">
+		<Liveclock/>
 		<Welcomename/>
 		<Commandbar/>
 	</div>

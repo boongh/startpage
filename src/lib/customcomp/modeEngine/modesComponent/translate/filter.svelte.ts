@@ -1,6 +1,9 @@
 
 //Manual ranking for optimal layout
 
+import { command } from "$app/server";
+import { computeCommandScore } from "bits-ui";
+
 export function Filter(commandValue: string, search: string, commandKeywords?: string[]): number {
     // Add custom logic here
     if(commandValue == "Return"){
@@ -12,5 +15,6 @@ export function Filter(commandValue: string, search: string, commandKeywords?: s
     } else if(commandValue == "Translate"){
         return 0.3;
     }
-    return 0.1;
+    const score = computeCommandScore(commandValue, search, commandKeywords)
+    return score;
 }

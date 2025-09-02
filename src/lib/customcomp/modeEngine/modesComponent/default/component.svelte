@@ -96,7 +96,8 @@
 						SetExtraParam(option);
 						option[key] = name;
 					}}
-					value={`options-${name}`}
+					value={`${name}`}
+					keywords={["Options", "op"]}
 				>
 					{@html icon}
 					<span class="text-center align-middle text-foreground">{name}</span>
@@ -117,7 +118,8 @@
 					commandinpref.value = '';
 					SetMode(source);
 				}}
-				value={`mode ${name}`}
+				value={`${name}`}
+				keywords={["mode", "m"]}
 				{disabled}
 			>
 				{@html icon}
@@ -175,7 +177,7 @@
 
 {#if query == ''}
 	<Command.List>
-		{@render test()}
+		<!-- {@render test()} -->
 		{@render ModeSelector(true, false)}
 		{@render SearchOptions(true, false)}
 	</Command.List>
@@ -188,7 +190,7 @@
 				</Command.LinkItem>
 			</Command.Group>
 		{/key}
-		{@render test()}
+		<!-- {@render test()} -->
 		{@render ModeSelector(false, true)}
 		{@render SearchOptions(false, true)}
 		{#key suggestions}

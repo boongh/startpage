@@ -11,11 +11,12 @@ export function PushToast(
 	
 	const content = {
 		description: Content,
-		action: {
+		actions : actions ? {
 			label: actionLabel,
 			onClick: () => { actions() }
-		},
+		} : undefined
 	}
+	
 	switch (type) {
 		case "default":
 			toast(Header, content)
